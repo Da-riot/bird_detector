@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Image Carousel</title>
+  <!-- Incluir Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <style>
+
+ .carousel-control-next {
+    width: 5%;
+    right: 16%;
+    transform: translateX(-50%);
+ }
+ .carousel-control-prev {
+    width: 5%;
+    left: 20%;
+    transform: translateX(-50%);
+ }
+ .container mt-5{
+    border-color: black;
+ }
+  .carousel-inner img {
+            width: 100%; /* Ajusta el ancho de las imágenes al 50% del contenedor */
+            max-width: 500px; /* Establece un ancho máximo para las imágenes */
+            height: auto; /* Mantiene la proporción de aspecto original de la imagen */
+            max-height: 300px; /* Establece una altura máxima para las imágenes */
+            margin: auto; /* Centra las imágenes horizontalmente */
+            border-radius: 15px;
+        }
+    body{
+        background-color: rgb(0, 75, 4);
+    }
+    h1 {
+    text-align: center; /* Centra el texto horizontalmente */
+    color: yellow; /* Color del texto */
+    margin-bottom: 60px; /* Margen inferior de 150 píxeles */
+    margin-top: 50px;
+    font-size: 25px;
+    }
+
+</style>
+</head>
+<body>
+  <h1>Detector de aves desde Raspberry Pi!</h1> 
+  <div class="container mt-5">
+    <div id="imageCarousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        {% for image_url in image_urls %}
+          <div class="carousel-item{% if loop.first %} active{% endif %}">
+            <img src="{{ image_url }}" class="d-block w-100" alt="Image">
+          </div>
+        {% endfor %}
+      </div>
+      <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
